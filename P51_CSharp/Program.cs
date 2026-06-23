@@ -4,6 +4,26 @@ namespace P51_CSharp
 {
     internal class Program
     {
+
+        static void MyFunc(ref int[] arr, ref int a, out int b)
+        {
+            arr[0] = 999;
+            arr = new int[] { 4, 5, 6 };
+            a = 100;
+            b = 999;
+        }
+
+        static int Sum(params int[] arr)
+        {
+            int s = 0;
+            foreach (int i in arr)
+            {
+                s += i;
+            }
+
+            return s;
+        }
+
         static void Main(string[] args)
         {
             Console.Title = "P51 C#";
@@ -16,6 +36,24 @@ namespace P51_CSharp
             //23.06.2026
 
 
+
+            string[] n = { "ertger", "lkoiuoi", "lkplklk" };
+            int[] arr = { 1, 2, 3 };
+            Console.WriteLine(string.Join(", ", arr));
+
+
+
+
+            //int[] arr = { 1, 2, 3 };
+            //int a = 9;
+
+            //MyFunc(ref arr, ref a, out int b);
+            //Console.WriteLine(arr[0]);
+            //Console.WriteLine(a);
+            //Console.WriteLine(b);
+            //Console.WriteLine(Sum(1,2,3,45,6));
+
+
             //Point point  = new Point();
             //point.X = 10;
             //point.Y = 30;
@@ -23,19 +61,23 @@ namespace P51_CSharp
 
             //int? a = null;
 
-            Console.WriteLine(Student.GetAcademy());
-            Student student = new Student();
-            student.Print();
-            Console.WriteLine(Student.number_of_years_study);
-            Console.WriteLine(student.number_of_subject);
-            
-            //student.number_of_subject = 7;
-                        
-            //Student.SetAcademy("University NUK");
-            
+            //Console.WriteLine(Student.GetAcademy());
+            //P51_CSharp.Student student = new Student();
+            //student.Print();
+            //Console.WriteLine(Student.number_of_years_study);
+            //Console.WriteLine(student.number_of_subject);
+
+
+            ////student.number_of_subject = 7;
+
+            ////Student.SetAcademy("University NUK");
+
             Student student1 = new Student(1, "Vasya", "Pupkin", new DateOnly(2000, 1, 20), 8);
             student1.Print();
-            
+            Console.WriteLine(string.Join(", ", student1.marks));
+            student1.marks[0] = 13;
+            //student1.marks = new int[] { 12, 12, 12 };
+            Console.WriteLine(string.Join(", ", student1.marks));
 
 
             //18.06.2026

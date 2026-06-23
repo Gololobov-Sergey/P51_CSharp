@@ -9,11 +9,7 @@ namespace P51_CSharp
         public int X;
         public int Y;
 
-        public Point()
-        {
-            X = 0;
-            Y = 0;
-        }
+        public Point() : this(0, 0) { }
 
         public Point(int x, int y)
         {

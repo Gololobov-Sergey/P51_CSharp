@@ -5,7 +5,7 @@ using System.Text;
 
 namespace P51_CSharp
 {
-    public class Student
+    public partial class Student
     {
         int id;
 
@@ -20,6 +20,8 @@ namespace P51_CSharp
         public const int number_of_years_study = 4;
 
         public readonly int number_of_subject;
+
+        public readonly int[] marks = { 10, 11, 12 };
 
         public Student()
         {
