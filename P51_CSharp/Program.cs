@@ -13,22 +13,47 @@ namespace P51_CSharp
             Console.BackgroundColor = ConsoleColor.Blue;
             Console.Clear();
 
+            //23.06.2026
+
+
+            //Point point  = new Point();
+            //point.X = 10;
+            //point.Y = 30;
+            //point.Print();
+
+            //int? a = null;
+
+            Console.WriteLine(Student.GetAcademy());
+            Student student = new Student();
+            student.Print();
+            Console.WriteLine(Student.number_of_years_study);
+            Console.WriteLine(student.number_of_subject);
+            
+            //student.number_of_subject = 7;
+                        
+            //Student.SetAcademy("University NUK");
+            
+            Student student1 = new Student(1, "Vasya", "Pupkin", new DateOnly(2000, 1, 20), 8);
+            student1.Print();
+            
+
+
             //18.06.2026
 
 
-            String s1 = "mama r2po3iuo2i3u o2i3 uo23i uo23iu  o2iuo23ir       pop2o3i";
-            var dd = s1.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+            //String s1 = "mama r2po3iuo2i3u o2i3 uo23i uo23iu  o2iuo23ir       pop2o3i";
+            //var dd = s1.Split(' ', StringSplitOptions.RemoveEmptyEntries);
 
-            foreach (var item in dd)
-            {
-                Console.WriteLine( item);
-            }
+            //foreach (var item in dd)
+            //{
+            //    Console.WriteLine( item);
+            //}
 
-            String s2 = "papa";
-            s1 += s2;
+            //String s2 = "papa";
+            //s1 += s2;
 
-            Random rnd = new Random();
-            
+            //Random rnd = new Random();
+
 
 
             //int[] arr = { 1, 2, 4, 3, 1, 4, 5, 6, 3, 4 };
@@ -39,7 +64,7 @@ namespace P51_CSharp
             //Console.WriteLine(arr.Distinct().ToArray().Length);
 
             //Console.WriteLine(Array.FindAll(arr, e => e < 4).Length);
-            
+
             //int count = 0;
             //int a1 = 1, a2 = 2, a3 = 4;
             //for (int i = 0; i < arr.Length - 2; i++)
