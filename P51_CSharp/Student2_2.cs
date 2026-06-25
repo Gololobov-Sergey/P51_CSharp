@@ -4,7 +4,7 @@ using System.Text;
 
 namespace P51_CSharp
 {
-    public partial class Student
+    public partial class Student2
     {
         public void Print_2()
         {

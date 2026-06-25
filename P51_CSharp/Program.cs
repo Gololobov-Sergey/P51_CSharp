@@ -24,6 +24,26 @@ namespace P51_CSharp
             return s;
         }
 
+        static int Div(int a, int b)
+        {
+            //try
+            //{
+            //    if (b == 0)
+            //        throw new DivideByZeroException("Oops");
+            //    return a / b;
+            //}
+            //catch (Exception ex)
+            //{
+            //    throw; // new Exception("Div by zero", ex);
+            //}
+
+
+            if (b != 0)
+                return a / b;
+            throw new ArgumentNullException("b = 0");
+
+        }
+
         static void Main(string[] args)
         {
             Console.Title = "P51 C#";
@@ -33,15 +53,75 @@ namespace P51_CSharp
             Console.BackgroundColor = ConsoleColor.Blue;
             Console.Clear();
 
+
+            //25.06.2026
+
+            // open file
+            try
+            {
+                //work with file
+                //int a = Convert.ToInt32(Console.ReadLine());
+                //int b = Convert.ToInt32(Console.ReadLine());
+                //Console.WriteLine(Div(a,b));
+
+                string s = Console.ReadLine();
+
+                int[] arr = { 1, 2, 3 };
+                Console.WriteLine(arr[3]);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.GetType().Name);
+                Console.WriteLine(ex.Message);
+                Console.WriteLine(ex.StackTrace);
+                Console.WriteLine(ex.Source);
+                Console.WriteLine(ex.HelpLink);
+                Console.WriteLine(ex.HResult);
+                Console.WriteLine(ex.InnerException);
+            }
+            finally
+            {
+                //close file 
+            }
+            
+
+
+
+
+            //Student student = new Student 
+            //{ 
+            //    FirstName = "Vasya", 
+            //    LastName = "Pupkin", 
+            //    BirthDay = new DateOnly(2000, 05, 15) 
+            //};
+            //student.Print();
+            //Student student1 = new Student();
+            //student1.Print();
+
+
+            //Student2 student1 = new Student2(1, "Vasya", "Pupkin", new DateOnly(2000, 1, 20), 8);
+            //student1.MyProperty = 10;
+            //student1.SetID(10);
+            //int id1 = student1.GetID();
+            //int id2 = student1.MyProperty;
+            ////student1.MyProperty1 = 22;
+            //Console.WriteLine(student1.MyProperty2);
+
+
+            //Temperature t = new Temperature(20);
+            //Console.WriteLine(t.Celsius + " °C");
+            //Console.WriteLine(t.Kelvin + " °K");
+            //Console.WriteLine(t.Fahrenheit + " °F");
+            //t.Kelvin = 300;
+            //t.Fahrenheit = 68.6f;
+
+
             //23.06.2026
 
 
-
-            string[] n = { "ertger", "lkoiuoi", "lkplklk" };
-            int[] arr = { 1, 2, 3 };
-            Console.WriteLine(string.Join(", ", arr));
-
-
+            //string[] n = { "ertger", "lkoiuoi", "lkplklk" };
+            //int[] arr = { 1, 2, 3 };
+            //Console.WriteLine(string.Join(", ", arr));
 
 
             //int[] arr = { 1, 2, 3 };
@@ -72,12 +152,12 @@ namespace P51_CSharp
 
             ////Student.SetAcademy("University NUK");
 
-            Student student1 = new Student(1, "Vasya", "Pupkin", new DateOnly(2000, 1, 20), 8);
-            student1.Print();
-            Console.WriteLine(string.Join(", ", student1.marks));
-            student1.marks[0] = 13;
-            //student1.marks = new int[] { 12, 12, 12 };
-            Console.WriteLine(string.Join(", ", student1.marks));
+            //Student student1 = new Student(1, "Vasya", "Pupkin", new DateOnly(2000, 1, 20), 8);
+            //student1.Print();
+            //Console.WriteLine(string.Join(", ", student1.marks));
+            //student1.marks[0] = 13;
+            ////student1.marks = new int[] { 12, 12, 12 };
+            //Console.WriteLine(string.Join(", ", student1.marks));
 
 
             //18.06.2026
