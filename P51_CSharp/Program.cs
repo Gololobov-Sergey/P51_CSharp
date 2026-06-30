@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Drawing;
+using System.Text;
 
 namespace P51_CSharp
 {
@@ -54,36 +55,85 @@ namespace P51_CSharp
             Console.Clear();
 
 
+            //30.06.2026
+
+            // =
+
+
+            // + += , - , *, /, % 
+            // ! < > >= <= == != 
+
+
+            Point p1 = new Point(2, 4);
+            //Point p2 = new Point(2, 4);
+            //Point p3 = p1 + p2;
+            //p1 += p3;
+            //Point p4 = -p1;
+            //p1++;
+            //++p1;
+            //p1.Print();
+            //p1 = p2 + 10;
+            //p1 = 10 + p2;
+
+
+            //Point p5 = p1;
+            //p1++;
+            //p1.Print();
+            //p5.Print();
+
+            //if(p1 || p5)
+            //{
+
+            //}
+
+            //float f = p1;
+
+
+
+            Apple a1 = new Apple(ConsoleColor.Green, 15);
+            Apple a2 = new Apple(ConsoleColor.Red, 10);
+            Kompot k = a1 + a2;
+            Apple a3 = new Apple(ConsoleColor.Yellow, 13);
+            k += a3;
+            k.Print();
+            k += new Ingradient("Water", 1000);
+            k += new Ingradient("Sugar", 100);
+
+            k.Print();
+
+            Console.WriteLine(ConsoleColor.Red);
+
+
             //25.06.2026
 
-            // open file
-            try
-            {
-                //work with file
-                //int a = Convert.ToInt32(Console.ReadLine());
-                //int b = Convert.ToInt32(Console.ReadLine());
-                //Console.WriteLine(Div(a,b));
+            //// open file
+            //try
+            //{
+            //    //work with file
+            //    //int a = Convert.ToInt32(Console.ReadLine());
+            //    //int b = Convert.ToInt32(Console.ReadLine());
+            //    //Console.WriteLine(Div(a,b));
 
-                string s = Console.ReadLine();
+            //    string s = Console.ReadLine();
 
-                int[] arr = { 1, 2, 3 };
-                Console.WriteLine(arr[3]);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.GetType().Name);
-                Console.WriteLine(ex.Message);
-                Console.WriteLine(ex.StackTrace);
-                Console.WriteLine(ex.Source);
-                Console.WriteLine(ex.HelpLink);
-                Console.WriteLine(ex.HResult);
-                Console.WriteLine(ex.InnerException);
-            }
-            finally
-            {
-                //close file 
-            }
-            
+            //    int[] arr = { 1, 2, 3 };
+            //    Console.WriteLine(arr[3]);
+            //}
+            //catch (Exception ex)
+            //{
+            //    Console.WriteLine(ex.GetType().Name);
+            //    Console.WriteLine(ex.Message);
+            //    Console.WriteLine(ex.StackTrace);
+            //    Console.WriteLine(ex.Source);
+            //    Console.WriteLine(ex.HelpLink);
+            //    Console.WriteLine(ex.HResult);
+            //    Console.WriteLine(ex.InnerException);
+            //}
+            //finally
+            //{
+            //    //close file 
+            //}
+
 
 
 
