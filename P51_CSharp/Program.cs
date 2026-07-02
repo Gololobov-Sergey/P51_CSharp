@@ -1,4 +1,5 @@
 ﻿using System.Drawing;
+using System.Numerics;
 using System.Text;
 
 namespace P51_CSharp
@@ -54,6 +55,40 @@ namespace P51_CSharp
             Console.BackgroundColor = ConsoleColor.Blue;
             Console.Clear();
 
+            //02.07.2026
+
+
+            Matrix m1 = new Matrix(3, 2);
+            m1.SetRandom(2, 5);
+            m1.Print();
+
+            //Matrix m2 = new Matrix { Rows = 2, Cols = 4 };
+            Matrix m2 = new Matrix(2, 3);
+            m2.SetRandom(3, 6);
+            m2.Print();
+
+            Matrix m3 = m1 * m2;
+            m3.Print();
+
+            //Matrix m4 = new Matrix(3, 2);
+            //m4.SetRandom(2, 7);
+            //m4.Print();
+
+            //Matrix m5 = m1 + m4;
+            //m5.Print();
+
+            //m1[1, 1] = 100;
+            //Console.WriteLine(m1[1,1]);
+
+            //string s = "mama";
+            //s += "papa";
+
+            //Temperature t = new Temperature(20);
+            //Console.WriteLine(t.Celsius + " °C");
+            //Console.WriteLine(t.Kelvin + " °K");
+            //Console.WriteLine(t["Kelvin"]);
+
+
 
             //30.06.2026
 
@@ -64,7 +99,9 @@ namespace P51_CSharp
             // ! < > >= <= == != 
 
 
-            Point p1 = new Point(2, 4);
+            //Point p1 = new Point(2, 4);
+            //Console.WriteLine(p1["X"]);
+            //Console.WriteLine(p1[1]);
             //Point p2 = new Point(2, 4);
             //Point p3 = p1 + p2;
             //p1 += p3;
@@ -90,18 +127,18 @@ namespace P51_CSharp
 
 
 
-            Apple a1 = new Apple(ConsoleColor.Green, 15);
-            Apple a2 = new Apple(ConsoleColor.Red, 10);
-            Kompot k = a1 + a2;
-            Apple a3 = new Apple(ConsoleColor.Yellow, 13);
-            k += a3;
-            k.Print();
-            k += new Ingradient("Water", 1000);
-            k += new Ingradient("Sugar", 100);
+            //Apple a1 = new Apple(ConsoleColor.Green, 15);
+            //Apple a2 = new Apple(ConsoleColor.Red, 10);
+            //Kompot k = a1 + a2;
+            //Apple a3 = new Apple(ConsoleColor.Yellow, 13);
+            //k += a3;
+            //k.Print();
+            //k += new Ingradient("Water", 1000);
+            //k += new Ingradient("Sugar", 100);
 
-            k.Print();
+            //k.Print();
 
-            Console.WriteLine(ConsoleColor.Red);
+            //Console.WriteLine(ConsoleColor.Red);
 
 
             //25.06.2026
