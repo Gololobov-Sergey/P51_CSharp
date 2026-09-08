@@ -55,20 +55,77 @@ namespace P51_CSharp
             Console.BackgroundColor = ConsoleColor.Blue;
             Console.Clear();
 
+            //08.09.2026
+
+
+            Human human = new Human(1, "Vasya", "Pupkin");
+            //human.ShowHuman();
+            //Console.WriteLine();
+
+            Employee employee = new Employee(1, "Petrik", "Pyatochkin", 1000);
+            //employee.Print();
+            //employee.ShowEmployee();
+            //Console.WriteLine();
+
+            Director director = new Director(1, "Vovka", "Zhirok", 1000, 2000);
+            //director.Print();
+            //director.ShowDirector();
+            //Console.WriteLine();
+
+            Human[] h = new Human[] { human, employee, director };
+
+            foreach (Human item in h)
+            {
+                //item.Print();
+
+                Console.WriteLine(item);
+
+                //item.ShowHuman();
+
+                //try
+                //{
+                //    ((Employee)item).ShowEmployee();
+                //}
+                //catch (Exception)
+                //{
+
+                //}
+                
+
+
+                //Employee e = item as Employee;
+                //if(e != null)
+                //{
+                //    e.ShowEmployee();
+                //}
+
+                //if(item is Director dir)
+                //{
+                //    dir.ShowDirector();
+                //}
+            }
+
+
+
+
+
+
             //02.07.2026
 
 
-            Matrix m1 = new Matrix(3, 2);
-            m1.SetRandom(2, 5);
-            m1.Print();
+            //Matrix m1 = new Matrix(3, 2);
 
-            //Matrix m2 = new Matrix { Rows = 2, Cols = 4 };
-            Matrix m2 = new Matrix(2, 3);
-            m2.SetRandom(3, 6);
-            m2.Print();
 
-            Matrix m3 = m1 * m2;
-            m3.Print();
+            //m1.SetRandom(2, 5);
+            //m1.Print();
+
+            ////Matrix m2 = new Matrix { Rows = 2, Cols = 4 };
+            //Matrix m2 = new Matrix(2, 3);
+            //m2.SetRandom(3, 6);
+            //m2.Print();
+
+            //Matrix m3 = m1 * m2;
+            //m3.Print();
 
             //Matrix m4 = new Matrix(3, 2);
             //m4.SetRandom(2, 7);
