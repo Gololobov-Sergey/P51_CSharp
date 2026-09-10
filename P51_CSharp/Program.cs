@@ -46,6 +46,11 @@ namespace P51_CSharp
 
         }
 
+        static void DoWork(IManager worker)
+        {
+            worker.Manage();
+        }
+
         static void Main(string[] args)
         {
             Console.Title = "P51 C#";
@@ -55,55 +60,112 @@ namespace P51_CSharp
             Console.BackgroundColor = ConsoleColor.Blue;
             Console.Clear();
 
+
+            //10.09.2026
+
+
+            Group group = new Group();
+            foreach (Student item in group)
+            {
+                Console.WriteLine(item);
+            }
+
+            Console.WriteLine();
+            //group.Sort(new DateComparer());
+            //group.Sort(Student.FromBirthDay);
+            group.Sort(Student.FromStudentCard);
+            foreach (Student item in group)
+            {
+                Console.WriteLine(item);
+            }
+
+
+            //MyClass2 my = new MyClass2();
+            //my.Show();
+
+            //((IA)my).Show();
+
+            //IA a = new MyClass2();
+            //a.Show();
+
+            //IB b = new MyClass2();
+            //b.Show();
+
+            //IC c = new MyClass2();
+            //c.Show();
+
+
+            //Employee employee = new Employee(1, "Petrik", "Pyatochkin", 1000);
+            //employee.Work();
+
+            //Programmer programmer = new Programmer(1, "Vovka", "Zhirok", "C#");
+            //programmer.Work();
+
+
+
+            //IWorker prorab = new Prorab();
+            //prorab.Work();
+
+            //prorab.IsWorking = true;
+            //prorab.Work();
+
+            //Director2 dir = new Director2() { IsWorking = true };
+            //dir.Work();
+            //dir.Manage();
+
+
+            //DoWork(dir);
+            //DoWork(prorab);
+
             //08.09.2026
 
 
-            Human human = new Human(1, "Vasya", "Pupkin");
+            //Human human = new Human(1, "Vasya", "Pupkin");
             //human.ShowHuman();
             //Console.WriteLine();
 
-            Employee employee = new Employee(1, "Petrik", "Pyatochkin", 1000);
+            //Employee employee = new Employee(1, "Petrik", "Pyatochkin", 1000);
             //employee.Print();
             //employee.ShowEmployee();
             //Console.WriteLine();
 
-            Director director = new Director(1, "Vovka", "Zhirok", 1000, 2000);
+            //Director director = new Director(1, "Vovka", "Zhirok", 1000, 2000);
             //director.Print();
             //director.ShowDirector();
             //Console.WriteLine();
 
-            Human[] h = new Human[] { human, employee, director };
+            //Human[] h = new Human[] {/* human,*/ employee, director };
 
-            foreach (Human item in h)
-            {
-                //item.Print();
+            //foreach (Human item in h)
+            //{
+            //    //item.Print();
 
-                Console.WriteLine(item);
+            //    Console.WriteLine(item);
 
-                //item.ShowHuman();
+            //    //item.ShowHuman();
 
-                //try
-                //{
-                //    ((Employee)item).ShowEmployee();
-                //}
-                //catch (Exception)
-                //{
+            //    //try
+            //    //{
+            //    //    ((Employee)item).ShowEmployee();
+            //    //}
+            //    //catch (Exception)
+            //    //{
 
-                //}
-                
+            //    //}
 
 
-                //Employee e = item as Employee;
-                //if(e != null)
-                //{
-                //    e.ShowEmployee();
-                //}
 
-                //if(item is Director dir)
-                //{
-                //    dir.ShowDirector();
-                //}
-            }
+            //    //Employee e = item as Employee;
+            //    //if(e != null)
+            //    //{
+            //    //    e.ShowEmployee();
+            //    //}
+
+            //    //if(item is Director dir)
+            //    //{
+            //    //    dir.ShowDirector();
+            //    //}
+            //}
 
 
 

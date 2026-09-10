@@ -4,7 +4,7 @@ using System.Text;
 
 namespace P51_CSharp
 {
-    class Human
+    abstract class Human
     {
         int id;
         string firstName;
@@ -21,6 +21,8 @@ namespace P51_CSharp
         //{
         //    Console.WriteLine($"Human: {id}, {firstName}, {lastName}");
         //}
+
+        public abstract void Work(); // Abstract method, must be implemented in derived classes
 
         public override string ToString()
         {
@@ -61,6 +63,11 @@ namespace P51_CSharp
             base.ShowHuman();
             Console.WriteLine($"Employee: {salary} $");
         }
+
+        public override void Work()
+        {
+            Console.WriteLine("Employee works");
+        }
     }
 
     class Director : Employee
@@ -89,5 +96,23 @@ namespace P51_CSharp
         }
     }
 
+
+    class Programmer : Human
+    {
+        string programmingLanguage;
+        public Programmer(int id, string fn, string ln, string pl) : base(id, fn, ln)
+        {
+            programmingLanguage = pl;
+        }
+        public override string ToString()
+        {
+            return base.ToString() + $"\nProgrammer: {programmingLanguage}";
+        }
+
+        public override void Work()
+        {
+            Console.WriteLine("Programmer make code");
+        }
+    }
 
 }
