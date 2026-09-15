@@ -6,7 +6,7 @@ using System.Text;
 namespace P51_CSharp
 {
 
-    public class StudentCard
+    public class StudentCard : IComparable
     {
         public string? Series { get; set; }
 
@@ -16,9 +16,15 @@ namespace P51_CSharp
         {
             return $"{Series} {Number}";
         }
+
+        public int CompareTo(object? other)
+        {
+            StudentCard? sc = other as StudentCard;
+            return (Series + Number).CompareTo(sc!.Series + sc.Number);
+        }
     }
 
-    public class Student : IComparable
+    public class Student : IComparable, ICloneable
     {
         public string? FirstName { get; set; }
         public string? LastName { get; set; }
@@ -27,6 +33,7 @@ namespace P51_CSharp
         public StudentCard? StudentCard { get; set; }
 
         public static IComparer FromBirthDay { get; } = new DateComparer();
+        public static IComparer FromStudentCard { get; } = new StudentCardComparer();
 
         public int CompareTo(object? st)
         {
@@ -42,7 +49,21 @@ namespace P51_CSharp
         {
             return $"{LastName,-20} {FirstName, -15} {BirthDay} {StudentCard}";
         }
+
+        public object Clone()
+        {
+            Student clonedStudent = (Student)this.MemberwiseClone();
+            clonedStudent.StudentCard = new StudentCard
+            {
+                Series = this.StudentCard?.Series,
+                Number = this.StudentCard!.Number
+            };
+            return clonedStudent;
+        }
+
+        
     }
+
 
 
     public class Group : IEnumerable
@@ -80,6 +101,18 @@ namespace P51_CSharp
                 return ((Student)x).BirthDay.CompareTo(((Student)y).BirthDay);
             }
             throw new ArgumentException("Objects are not Students");
+        }
+    }
+
+    public class StudentCardComparer : IComparer
+    {
+        public int Compare(object? x, object? y)
+        {
+            if (x is Student && y is Student)
+            {
+                return ((Student)x).StudentCard!.CompareTo(((Student)y).StudentCard);
+            }
+            throw new NotImplementedException();
         }
     }
 }

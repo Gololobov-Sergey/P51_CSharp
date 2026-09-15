@@ -115,4 +115,60 @@ namespace P51_CSharp
         }
     }
 
+
+    class Child : ICloneable
+    {
+        public string? Name { get; set; }
+
+        public int Age { get; set; }
+
+        public object Clone()
+        {
+            return this.MemberwiseClone();
+        }
+
+        public override string ToString()
+        {
+            return $"{Name} - {Age}";
+        }
+    }
+
+
+    interface IWeapon
+    {
+        void Attack();
+    }
+
+
+    class Sword : IWeapon
+    {
+        public void Attack()
+        {
+            Console.WriteLine("Sword attack");
+        }
+    }
+
+    class Gun : IWeapon
+    {
+        public void Attack()
+        {
+            Console.WriteLine("Gun attack");
+        }
+    }
+
+
+    class Warriror
+    {
+        IWeapon weapon;
+
+        public void SetWeapon(IWeapon w)
+        {
+            weapon = w;
+        }
+
+        public void Attack()
+        {
+            weapon.Attack();
+        }
+    }
 }

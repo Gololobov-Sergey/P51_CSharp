@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System.Collections;
+using System.Drawing;
 using System.Numerics;
 using System.Text;
 
@@ -61,23 +62,65 @@ namespace P51_CSharp
             Console.Clear();
 
 
+            //15.09.2026
+
+
+            Warriror warriror = new Warriror();
+            warriror.SetWeapon(new Sword());
+            warriror.Attack();
+
+            warriror.SetWeapon(new Gun());
+            warriror.Attack();
+
+
+            //List<IWorker> team = [new TeamLead(), new Worker(), new Worker(), new Worker()];
+            //foreach (IWorker item in team)
+            //{
+            //    item.Work();
+            //}
+
+
+            //Student student1 = new Student() { FirstName = "Vasya", LastName = "Pupkin", BirthDay = new DateOnly(2000, 05, 15), StudentCard = new StudentCard() { Series = "AA", Number = 123456 } };
+            //Student student2 = (Student)student1.Clone();
+
+            //Console.WriteLine(student1);
+            //Console.WriteLine(student2);
+
+            //student2.FirstName = "Petya";
+            //student2.StudentCard.Number = 999999;
+
+            //Console.WriteLine(student1);
+            //Console.WriteLine(student2);
+
+
+            //Child child1 = new Child() { Name = "Vasya", Age = 10 };
+            //Child child2 = (Child)child1.Clone();
+
+            //Console.WriteLine(child1);
+            //Console.WriteLine(child2);
+
+            //child2.Name = "Petya";
+
+            //Console.WriteLine(child1);
+            //Console.WriteLine(child2);
+
             //10.09.2026
 
 
-            Group group = new Group();
-            foreach (Student item in group)
-            {
-                Console.WriteLine(item);
-            }
+            //Group group = new Group();
+            //foreach (Student item in group)
+            //{
+            //    Console.WriteLine(item);
+            //}
 
-            Console.WriteLine();
-            //group.Sort(new DateComparer());
-            //group.Sort(Student.FromBirthDay);
-            group.Sort(Student.FromStudentCard);
-            foreach (Student item in group)
-            {
-                Console.WriteLine(item);
-            }
+            //Console.WriteLine();
+            ////group.Sort(new DateComparer());
+            ////group.Sort(Student.FromBirthDay);
+            //group.Sort(Student.FromStudentCard);
+            //foreach (Student item in group)
+            //{
+            //    Console.WriteLine(item);
+            //}
 
 
             //MyClass2 my = new MyClass2();

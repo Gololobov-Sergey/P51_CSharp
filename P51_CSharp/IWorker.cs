@@ -4,7 +4,7 @@ using System.Text;
 
 namespace P51_CSharp
 {
-    internal interface IWorker
+    internal interface IWorker1
     {
         bool IsWorking { get; set; }
         void Work();
@@ -16,7 +16,7 @@ namespace P51_CSharp
         void Manage();
     }
 
-    class Prorab : IWorker
+    class Prorab : IWorker1
     {
         public bool IsWorking { get; set; }
         public void Work()
@@ -32,7 +32,7 @@ namespace P51_CSharp
         }
     }
 
-    class Director2 : IWorker, IManager
+    class Director2 : IWorker1, IManager
     {
         public bool IsWorking { get; set; }
 
