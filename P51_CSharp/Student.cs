@@ -24,7 +24,7 @@ namespace P51_CSharp
         }
     }
 
-    public class Student : IComparable, ICloneable
+    public class Student : IComparable<Student>, ICloneable
     {
         public string? FirstName { get; set; }
         public string? LastName { get; set; }
@@ -32,22 +32,17 @@ namespace P51_CSharp
 
         public StudentCard? StudentCard { get; set; }
 
-        public static IComparer FromBirthDay { get; } = new DateComparer();
+        public static IComparer<Student> FromBirthDay { get; } = new DateComparer();
         public static IComparer FromStudentCard { get; } = new StudentCardComparer();
 
-        public int CompareTo(object? st)
+        public int CompareTo(Student? st)
         {
-            if (st is Student)
-            {
-                return (LastName + FirstName).CompareTo(((Student)st).LastName + ((Student)st).FirstName);
-            }
-
-            throw new ArgumentException("Object is not a Student");
+            return (LastName + FirstName).CompareTo(st!.LastName + st.FirstName);
         }
 
         public override string ToString()
         {
-            return $"{LastName,-20} {FirstName, -15} {BirthDay} {StudentCard}";
+            return $"{LastName,-20} {FirstName,-15} {BirthDay} {StudentCard}";
         }
 
         public object Clone()
@@ -61,7 +56,7 @@ namespace P51_CSharp
             return clonedStudent;
         }
 
-        
+
     }
 
 
@@ -78,7 +73,7 @@ namespace P51_CSharp
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            return students.GetEnumerator(); 
+            return students.GetEnumerator();
         }
 
         public void Sort()
@@ -92,15 +87,11 @@ namespace P51_CSharp
         }
     }
 
-    public class DateComparer : IComparer
+    public class DateComparer : IComparer<Student>
     {
-        public int Compare(object? x, object? y)
+        public int Compare(Student? x, Student? y)
         {
-            if (x is Student && y is Student)
-            {
-                return ((Student)x).BirthDay.CompareTo(((Student)y).BirthDay);
-            }
-            throw new ArgumentException("Objects are not Students");
+            return x.BirthDay.CompareTo(y.BirthDay);
         }
     }
 

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace P51_CSharp
 {
-    internal class Program
+    internal partial class Program
     {
 
         static void MyFunc(ref int[] arr, ref int a, out int b)
@@ -62,15 +62,94 @@ namespace P51_CSharp
             Console.Clear();
 
 
+            //17.09.2026
+
+
+            //Point2D<Employee> point1 = new Point2D<Employee>();
+            //Console.WriteLine(point1);
+
+
+
+            //Iter iter = new Iter();
+            //foreach (int item in iter.GetEvenEnumerator())
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+
+            Alphabet alphabet = new Alphabet();
+            foreach (char item in alphabet)
+            {
+                Console.Write(item);
+            }
+
+
+            //Hashtable group = new Hashtable
+            //{
+            //    {
+            //        new Student { FirstName = "John", LastName = "Doe", 
+            //            BirthDay = new DateOnly(2000, 1, 10), 
+            //            StudentCard = new StudentCard { Series = "AB", Number = 123456 } },
+            //        new ArrayList{10,11,12}
+            //    },
+            //    {
+            //        new Student { FirstName = "Jane", LastName = "Smith", 
+            //            BirthDay = new DateOnly(2000, 1, 2), 
+            //            StudentCard = new StudentCard { Series = "AB", Number = 123455 } },
+            //        new ArrayList{9,10,11}
+            //    },
+            //    {
+            //        new Student { FirstName = "Alice", LastName = "Johnson", 
+            //            BirthDay = new DateOnly(2001, 3, 3), 
+            //            StudentCard = new StudentCard { Series = "AA", Number = 123458 } },
+            //        new ArrayList{12,12,12}
+            //    },
+            //    {
+            //        new Student { FirstName = "Bob", LastName = "Brown", 
+            //            BirthDay = new DateOnly(2000, 4, 4), 
+            //            StudentCard = new StudentCard { Series = "AA", Number = 123457 } },
+            //        new ArrayList{8,9,10}
+            //    }
+            //};
+
+            //PrintGroup(group); //Vasya Pupkin - 10, 12, 12
+
+            //AddMark(group, "Bob", "Brown", 12);
+
+            //PrintGroup(group);
+
+
+            //using(new OperationTimer("ArrayList"))
+            //{
+            //    ArrayList arr = new ArrayList();
+            //    for (int i = 0; i < 10000000; i++)
+            //    {
+            //        arr.Add(i);
+            //        int x = (int)arr[i];
+            //    }
+            //    arr = null;
+            //}
+
+            //using(new OperationTimer("List<int>"))
+            //{
+            //    List<int> arr = new List<int>();
+            //    for (int i = 0; i < 10000000; i++)
+            //    {
+            //        arr.Add(i);
+            //        int x = arr[i];
+            //    }
+            //    arr = null;
+            //}
+
             //15.09.2026
 
 
-            Warriror warriror = new Warriror();
-            warriror.SetWeapon(new Sword());
-            warriror.Attack();
+            //Warriror warriror = new Warriror();
+            //warriror.SetWeapon(new Sword());
+            //warriror.Attack();
 
-            warriror.SetWeapon(new Gun());
-            warriror.Attack();
+            //warriror.SetWeapon(new Gun());
+            //warriror.Attack();
 
 
             //List<IWorker> team = [new TeamLead(), new Worker(), new Worker(), new Worker()];
@@ -630,5 +709,7 @@ namespace P51_CSharp
 
             Console.Read();
         }
+
+        
     }
 }

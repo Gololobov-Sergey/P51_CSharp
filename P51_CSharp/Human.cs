@@ -41,6 +41,11 @@ namespace P51_CSharp
     {
         int salary;
 
+        public Employee() : base(0, "FirstName", "LastName")
+        {
+
+        }
+
         public Employee(int id, string fn, string ln, int sal) : base(id, fn, ln)
         {
             salary = sal;
