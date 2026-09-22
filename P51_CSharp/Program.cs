@@ -2,6 +2,8 @@
 using System.Drawing;
 using System.Numerics;
 using System.Text;
+using System.Security.Cryptography;
+using static P51_CSharp.Program;
 
 namespace P51_CSharp
 {
@@ -52,6 +54,33 @@ namespace P51_CSharp
             worker.Manage();
         }
 
+        public delegate void MyDelegate(string message);
+
+        //public delegate int CalcDelegate(int a, int b);
+
+        //public delegate double CalcDoubleDelegate(double a, double b);
+
+        public delegate TOut Calc_T_Delegate<TOut, T1, T2>(T1 a, T2 b);
+
+        //public delegate void Universal<T1, T2>(T1 a, T2 b);
+        //public delegate void Universal<T1, T2, T3>(T1 a, T2 b, T3 c);
+
+        static public void UFunc(int a, float b)
+        {
+            Console.WriteLine("UFanc");
+        }
+
+        static public void PrintStudent(Student st)
+        {
+            Console.WriteLine($"{st.FirstName} {st.BirthDay}");
+        }
+
+
+        static void PrintMessage(string message)
+        {
+            Console.WriteLine(message);
+        }
+
         static void Main(string[] args)
         {
             Console.Title = "P51 C#";
@@ -61,6 +90,108 @@ namespace P51_CSharp
             Console.BackgroundColor = ConsoleColor.Blue;
             Console.Clear();
 
+            
+            //22.09.2026
+
+
+            List<Student> students = new List<Student>
+            {
+                new Student { FirstName = "John", LastName = "Doe", BirthDay = new DateOnly(2000, 1, 10), StudentCard = new StudentCard { Series = "AB", Number = 123456 } },
+                new Student { FirstName = "Jane", LastName = "Smith", BirthDay = new DateOnly(2000, 1, 2), StudentCard = new StudentCard { Series = "AB", Number = 123455 } },
+                new Student { FirstName = "Alice", LastName = "Johnson", BirthDay = new DateOnly(2001, 3, 3), StudentCard = new StudentCard { Series = "AA", Number = 123458 } },
+                new Student { FirstName = "Bob", LastName = "Brown", BirthDay = new DateOnly(2000, 4, 4), StudentCard = new StudentCard { Series = "AA", Number = 123457 } }
+            };
+
+            //Console.WriteLine(students.All(s => s.BirthDay.Year < 2002));
+
+            //Console.WriteLine(students.Count(s => s.BirthDay.Year == 2000));
+
+            //PrintStudent(students.Last(s => s.BirthDay.Month == 1));
+
+            //var st = students.Select(s => new { s.FirstName, s.LastName }).ToList();
+            //st.ForEach(s => Console.WriteLine(s));
+
+            //Console.WriteLine(students[0].GetHashCode());
+
+
+            //students.FindAll(s => s.BirthDay.Month >= 3 && s.BirthDay.Month <= 5).ForEach(PrintStudent);
+
+
+            //students.Sort(new DateComparer());
+            students.Sort((s1, s2) => s1.BirthDay.CompareTo(s2.BirthDay));
+
+            students.ForEach(s => Console.WriteLine(s));
+
+            //SHA512 sha512 = SHA512.Create();
+            //var b = sha512.   ComputeHash(Encoding.UTF8.GetBytes(students[0].ToString()));
+            //string st1 = Encoding.UTF8.GetString(b);
+            //Console.WriteLine(st1);
+
+            //students.ForEach(PrintStudent);
+            //students.ForEach(s => Console.WriteLine($"{s.FirstName} {s.BirthDay}"));
+
+            //Action<Student> printName = s => Console.WriteLine($"{s.FirstName} {s.BirthDay}");
+            //foreach (Student item in students)
+            //{
+            //    printName(item);
+            //}
+
+            //Universal<int, float> universal = UFunc; // ???
+
+            //Action<int, float> action = UFunc;
+
+
+
+            //MyDelegate myDelegate = PrintMessage;
+            //myDelegate("Hello World!");
+
+            //int a = Convert.ToInt32(Console.ReadLine());
+            //int b = Convert.ToInt32(Console.ReadLine());
+            ////char op = Convert.ToChar(Console.ReadLine());
+
+            //Calc calc = new Calc();
+            //Calc_T_Delegate<int> calcDelegate = calc.Add;
+            //calcDelegate += calc.Multiply;
+            //calcDelegate += Calc.Subtract;
+
+            //Console.WriteLine(calcDelegate(a, b));
+
+            //Calc_T_Delegate<int> calc1 = calc.Add;
+
+            //((Calc)calc1.Target).Show();
+
+            //foreach (CalcDelegate item in calcDelegate.GetInvocationList())
+            //{
+            //    Console.WriteLine(item(a, b));
+            //}
+            //Console.WriteLine();
+
+            //calcDelegate -= Calc.Subtract;
+            //foreach (CalcDelegate item in calcDelegate.GetInvocationList())
+            //{
+            //    Console.WriteLine(item(a, b));
+            //}
+            //Console.WriteLine();
+
+            //Console.WriteLine(((CalcDelegate)calcDelegate.GetInvocationList()[1])(a, b));
+
+            //switch (op)
+            //{
+            //    case '+':
+            //        calcDelegate = calc.Add;
+            //        break;
+            //    case '-':
+            //        calcDelegate = Calc.Subtract;
+            //        break;
+            //    case '*':
+            //        calcDelegate = calc.Multiply;
+            //        break;
+            //    default:
+            //        break;
+            //}
+
+            //int res = calcDelegate(a, b);
+            //Console.WriteLine(res);
 
             //17.09.2026
 
@@ -77,11 +208,11 @@ namespace P51_CSharp
             //}
 
 
-            Alphabet alphabet = new Alphabet();
-            foreach (char item in alphabet)
-            {
-                Console.Write(item);
-            }
+            //Alphabet alphabet = new Alphabet();
+            //foreach (char item in alphabet)
+            //{
+            //    Console.Write(item);
+            //}
 
 
             //Hashtable group = new Hashtable

@@ -56,7 +56,10 @@ namespace P51_CSharp
             return clonedStudent;
         }
 
-
+        public override int GetHashCode()
+        {
+            return $"{FirstName}{LastName}{BirthDay}{StudentCard.Series}{StudentCard.Number}".GetHashCode();
+        }
     }
 
 
