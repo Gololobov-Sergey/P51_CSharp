@@ -90,9 +90,7 @@ namespace P51_CSharp
             Console.BackgroundColor = ConsoleColor.Blue;
             Console.Clear();
 
-            
-            //22.09.2026
-
+            //24.09.2026
 
             List<Student> students = new List<Student>
             {
@@ -101,6 +99,44 @@ namespace P51_CSharp
                 new Student { FirstName = "Alice", LastName = "Johnson", BirthDay = new DateOnly(2001, 3, 3), StudentCard = new StudentCard { Series = "AA", Number = 123458 } },
                 new Student { FirstName = "Bob", LastName = "Brown", BirthDay = new DateOnly(2000, 4, 4), StudentCard = new StudentCard { Series = "AA", Number = 123457 } }
             };
+
+            
+
+
+            Teacher teacher = new Teacher { Name = "Gololobov S.A."};
+
+            foreach (Student item in students)
+            {
+                teacher.ExamEvent += item.Exam;
+            }
+
+            //teacher.ExamEvent += Teacher_ExamEvent;
+
+            //.....
+
+            teacher.SetExam(new ExamEventArgs { Date = new DateTime(2026, 10, 20), Subject = "C#", Room = "208"});
+
+            teacher.ExamEvent -= students[2].Exam;
+
+            Console.WriteLine();
+            teacher.SetExam(new ExamEventArgs { Date = new DateTime(2026, 10, 24), Subject = "C#", Room = "205" });
+
+            //teacher.SetMethod(students[2].Exam);
+
+            Console.WriteLine();
+            teacher.SetExam(new ExamEventArgs { Date = new DateTime(2026, 10, 30), Subject = "C#", Room = "210" });
+
+
+            //22.09.2026
+
+
+            //List<Student> students = new List<Student>
+            //{
+            //    new Student { FirstName = "John", LastName = "Doe", BirthDay = new DateOnly(2000, 1, 10), StudentCard = new StudentCard { Series = "AB", Number = 123456 } },
+            //    new Student { FirstName = "Jane", LastName = "Smith", BirthDay = new DateOnly(2000, 1, 2), StudentCard = new StudentCard { Series = "AB", Number = 123455 } },
+            //    new Student { FirstName = "Alice", LastName = "Johnson", BirthDay = new DateOnly(2001, 3, 3), StudentCard = new StudentCard { Series = "AA", Number = 123458 } },
+            //    new Student { FirstName = "Bob", LastName = "Brown", BirthDay = new DateOnly(2000, 4, 4), StudentCard = new StudentCard { Series = "AA", Number = 123457 } }
+            //};
 
             //Console.WriteLine(students.All(s => s.BirthDay.Year < 2002));
 
@@ -118,9 +154,9 @@ namespace P51_CSharp
 
 
             //students.Sort(new DateComparer());
-            students.Sort((s1, s2) => s1.BirthDay.CompareTo(s2.BirthDay));
+            //students.Sort((s1, s2) => s1.BirthDay.CompareTo(s2.BirthDay));
 
-            students.ForEach(s => Console.WriteLine(s));
+            //students.ForEach(s => Console.WriteLine(s));
 
             //SHA512 sha512 = SHA512.Create();
             //var b = sha512.   ComputeHash(Encoding.UTF8.GetBytes(students[0].ToString()));
@@ -841,6 +877,5 @@ namespace P51_CSharp
             Console.Read();
         }
 
-        
     }
 }
