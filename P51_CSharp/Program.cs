@@ -4,6 +4,7 @@ using System.Numerics;
 using System.Text;
 using System.Security.Cryptography;
 using static P51_CSharp.Program;
+using System.Text.RegularExpressions;
 
 namespace P51_CSharp
 {
@@ -90,41 +91,255 @@ namespace P51_CSharp
             Console.BackgroundColor = ConsoleColor.Blue;
             Console.Clear();
 
-            //24.09.2026
 
-            List<Student> students = new List<Student>
+
+            //29.09.2026
+
+            List<Firma> firms = new List<Firma>
             {
-                new Student { FirstName = "John", LastName = "Doe", BirthDay = new DateOnly(2000, 1, 10), StudentCard = new StudentCard { Series = "AB", Number = 123456 } },
-                new Student { FirstName = "Jane", LastName = "Smith", BirthDay = new DateOnly(2000, 1, 2), StudentCard = new StudentCard { Series = "AB", Number = 123455 } },
-                new Student { FirstName = "Alice", LastName = "Johnson", BirthDay = new DateOnly(2001, 3, 3), StudentCard = new StudentCard { Series = "AA", Number = 123458 } },
-                new Student { FirstName = "Bob", LastName = "Brown", BirthDay = new DateOnly(2000, 4, 4), StudentCard = new StudentCard { Series = "AA", Number = 123457 } }
+                new Firma("SoftLine", new DateTime(2010, 5, 12),
+                    "IT", "Петренко Олександр Іванович", 120,
+                    "м. Київ, вул. Хрещатик, 10"),
+
+                new Firma("WebStudio", new DateTime(2015, 3, 20),
+                    "IT", "Іваненко Андрій Петрович", 45,
+                    "м. Львів, вул. Городоцька, 25"),
+
+                new Firma("MarketPro", new DateTime(2008, 7, 15),
+                    "Маркетинг", "Коваленко Сергій Олексійович", 35,
+                    "м. Київ, вул. Ділова, 12"),
+
+                new Firma("BuildMaster", new DateTime(2012, 9, 5),
+                    "Будівництво", "Мельник Олег Васильович", 230,
+                    "м. Одеса, вул. Дерибасівська, 15"),
+
+                new Firma("FoodTime", new DateTime(2018, 2, 10),
+                    "Харчування", "Шевченко Максим Андрійович", 85,
+                    "м. Миколаїв, вул. Соборна, 30"),
+
+                new Firma("CyberSoft", new DateTime(2017, 4, 22),
+                    "IT", "Бондаренко Дмитро Сергійович", 155,
+                    "м. Київ, вул. Антоновича, 8"),
+
+                new Firma("AutoDrive", new DateTime(2005, 11, 3),
+                    "Автомобілі", "Мороз Віктор Петрович", 180,
+                    "м. Харків, вул. Наукова, 7"),
+
+                new Firma("TravelWorld", new DateTime(2014, 6, 11),
+                    "Туризм", "Лисенко Ірина Миколаївна", 28,
+                    "м. Львів, вул. Шевченка, 21"),
+
+                new Firma("AgroLand", new DateTime(2003, 8, 17),
+                    "Сільське господарство", "Романенко Василь Іванович", 310,
+                    "м. Одеса, вул. Польова, 4"),
+
+                new Firma("DesignPro", new DateTime(2019, 10, 9),
+                    "Дизайн", "Гнатюк Марія Олегівна", 24,
+                    "м. Київ, вул. Франка, 16"),
+
+                new Firma("LogisticGroup", new DateTime(2011, 12, 1),
+                    "Логістика", "Захарченко Роман Васильович", 145,
+                    "м. Миколаїв, вул. Перемоги, 33"),
+
+                new Firma("MedService", new DateTime(2009, 3, 14),
+                    "Медицина", "Кравченко Олена Петрівна", 95,
+                    "м. Харків, вул. Лікарняна, 5"),
+
+                new Firma("TechnoStar", new DateTime(2013, 7, 19),
+                    "IT", "Даниленко Артем Вікторович", 210,
+                    "м. Дніпро, вул. Робоча, 20"),
+
+                new Firma("CleanHome", new DateTime(2021, 2, 8),
+                    "Послуги", "Олійник Тетяна Сергіївна", 43,
+                    "м. Миколаїв, вул. Соборна, 11"),
+
+                new Firma("FashionStyle", new DateTime(2010, 10, 25),
+                    "Торгівля", "Білик Катерина Ігорівна", 76,
+                    "м. Одеса, вул. Пушкінська, 19"),
+
+                new Firma("EnergyPower", new DateTime(2001, 4, 6),
+                    "Енергетика", "Сидоренко Микола Васильович", 420,
+                    "м. Харків, вул. Енергетична, 2"),
+
+                new Firma("LegalExpert", new DateTime(2015, 9, 13),
+                    "Юридичні послуги", "Кузьменко Павло Олександрович", 22,
+                    "м. Київ, вул. Велика Васильківська, 55"),
+
+                new Firma("CoffeeTime", new DateTime(2022, 3, 15),
+                    "Харчування", "Василенко Анна Романівна", 18,
+                    "м. Львів, вул. Вірменська, 9"),
+
+                new Firma("InfoSystems", new DateTime(2018, 8, 21),
+                    "IT", "Федоренко Євген Миколайович", 155,
+                    "м. Київ, вул. Перемоги, 14"),
+
+                new Firma("GreenGarden", new DateTime(2014, 11, 7),
+                    "Дизайн", "Назаренко Ігор Петрович", 37,
+                    "м. Вінниця, вул. Келецька, 28"),
+
+                new Firma("TransportLine", new DateTime(2007, 6, 30),
+                    "Логістика", "Макаренко Олексій Іванович", 275,
+                    "м. Одеса, вул. Балківська, 40"),
+
+                new Firma("MediaStar", new DateTime(2019, 1, 12),
+                    "Маркетинг", "Терещенко Вікторія Олегівна", 48,
+                    "м. Київ, вул. Ярославська, 17"),
+
+                new Firma("SmartHome", new DateTime(2020, 7, 5),
+                    "IT", "Павленко Денис Сергійович", 63,
+                    "м. Харків, вул. Космічна, 12"),
+
+                new Firma("AgroTech", new DateTime(2012, 2, 24),
+                    "Сільське господарство", "Волошин Андрій Миколайович", 112,
+                    "м. Одеса, вул. Центральна, 36"),
+
+                new Firma("SecurityPro", new DateTime(2006, 10, 16),
+                    "Послуги", "Єфремов Олександр Петрович", 195,
+                    "м. Дніпро, вул. Калинова, 50"),
+
+                new Firma("KidsWorld", new DateTime(2017, 12, 3),
+                    "Освіта", "Марченко Людмила Василівна", 54,
+                    "м. Миколаїв, вул. Адміральська, 23"),
+
+                new Firma("RealEstate", new DateTime(2004, 5, 18),
+                    "Нерухомість", "Руденко Вадим Олексійович", 88,
+                    "м. Київ, вул. Ділова, 9"),
+
+                new Firma("CodeFactory", new DateTime(2016, 4, 26),
+                    "IT", "Черненко Іван Дмитрович", 95,
+                    "м. Львів, вул. Наукова, 7"),
+
+                new Firma("MarketPlus", new DateTime(2011, 9, 14),
+                    "Маркетинг", "Савченко Юлія Андріївна", 61,
+                    "м. Харків, вул. Сумська, 42"),
+
+                new Firma("BuildHouse", new DateTime(2009, 1, 30),
+                    "Будівництво", "Олексенко Роман Петрович", 165,
+                    "м. Миколаїв, вул. Центральна, 18")
             };
 
-            
+            Console.WriteLine("СПИСОК ФІРМ");
+            Console.WriteLine(new string('-', 150));
 
-
-            Teacher teacher = new Teacher { Name = "Gololobov S.A."};
-
-            foreach (Student item in students)
+            foreach (Firma firma in firms)
             {
-                teacher.ExamEvent += item.Exam;
+                Console.WriteLine(firma);
             }
+
+            Console.WriteLine(new string('-', 150));
+            Console.WriteLine($"Кількість фірм: {firms.Count}");
+
+
+
+            //string pattern = @"^\+38\((050|066)\)\d{3}-\d{2}-\d{2}$"; // +38(050)325-45-78
+            //string pattern = @"^\d{4}$"; // PIN XXXX
+            //string pattern = @"^\-?\+?\d+$"; // int
+            string pattern = @"^[A-Z][a-z]* [A-Z][a-z]*$"; // int
+
+            Regex regex = new Regex(pattern);
+                   
+            while(true)
+            {
+                string str = Console.ReadLine();
+                Console.WriteLine(regex.IsMatch(str));
+            }
+
+
+
+            //int[] arr = { 1, 2, 3, 5, 6, 8, 9, 0 };
+
+            //var res = from i in arr
+            //          where i % 2 == 0
+            //          orderby i descending
+            //          select i;
+
+            //var res1 = arr.Where(a => a % 2 == 0);
+
+            ////
+            //arr[2] = 100;
+            ////
+            ////
+
+            //foreach (var item in res)
+            //{
+            //    Console.Write(item + ", ");
+            //}
+            //Console.WriteLine();
+
+            //string st = "mama";
+            //Console.WriteLine("*".MultString(20));
+            //Console.Write(st); Console.WriteLine("----");
+            //Console.Write(st.PadLeft(10)); Console.WriteLine("----");
+            //Console.Write(st.PadRight(10)); Console.WriteLine("----");
+            //Console.Write(st.PadLeftRight(10)); Console.WriteLine("----");
+
+
+            //24.09.2026
+
+            //List<Student> students = new List<Student>
+            //{
+            //    new Student { FirstName = "John", LastName = "Doe", BirthDay = new DateOnly(2000, 1, 10), StudentCard = new StudentCard { Series = "AB", Number = 123456 } },
+            //    new Student { FirstName = "Jane", LastName = "Smith", BirthDay = new DateOnly(2000, 1, 2), StudentCard = new StudentCard { Series = "AB", Number = 123455 } },
+            //    new Student { FirstName = "Alice", LastName = "Johnson", BirthDay = new DateOnly(2001, 3, 3), StudentCard = new StudentCard { Series = "AA", Number = 123458 } },
+            //    new Student { FirstName = "Bob", LastName = "Brown", BirthDay = new DateOnly(2000, 4, 4), StudentCard = new StudentCard { Series = "AA", Number = 123457 } }
+            //};
+
+            //var res = from s in students
+            //          group s by s.BirthDay.Month into m
+            //          where m.Count() > 1
+            //          select m;
+
+            //var res1 = students
+            //    .GroupBy(s => s.BirthDay.Month)
+            //    .Where(g => g.Count() > 1);
+
+            //var e = students.Where(s => s.FirstName[s.FirstName.Length - 1] == 'e').Select(s => s);
+
+            //foreach (var item in e)
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+            //Console.WriteLine(students.Sum(s => s.FirstName.Length));
+
+            //where s.BirthDay.Month > 2
+            //orderby s
+            //select new { s.FirstName, s.BirthDay}).ToList();
+
+            //res.ForEach(s => Console.WriteLine(s));
+
+            //foreach (IGrouping<int, Student> item in res1)
+            //{
+            //    Console.WriteLine(item.Key);
+            //    foreach (Student s in item)
+            //    {
+            //        Console.WriteLine(s);
+            //    }
+            //}
+
+
+            //Teacher teacher = new Teacher { Name = "Gololobov S.A."};
+
+            //foreach (Student item in students)
+            //{
+            //    teacher.ExamEvent += item.Exam;
+            //}
 
             //teacher.ExamEvent += Teacher_ExamEvent;
 
             //.....
 
-            teacher.SetExam(new ExamEventArgs { Date = new DateTime(2026, 10, 20), Subject = "C#", Room = "208"});
+            //teacher.SetExam(new ExamEventArgs { Date = new DateTime(2026, 10, 20), Subject = "C#", Room = "208"});
 
-            teacher.ExamEvent -= students[2].Exam;
+            //teacher.ExamEvent -= students[2].Exam;
 
-            Console.WriteLine();
-            teacher.SetExam(new ExamEventArgs { Date = new DateTime(2026, 10, 24), Subject = "C#", Room = "205" });
+            //Console.WriteLine();
+            //teacher.SetExam(new ExamEventArgs { Date = new DateTime(2026, 10, 24), Subject = "C#", Room = "205" });
 
-            //teacher.SetMethod(students[2].Exam);
+            ////teacher.SetMethod(students[2].Exam);
 
-            Console.WriteLine();
-            teacher.SetExam(new ExamEventArgs { Date = new DateTime(2026, 10, 30), Subject = "C#", Room = "210" });
+            //Console.WriteLine();
+            //teacher.SetExam(new ExamEventArgs { Date = new DateTime(2026, 10, 30), Subject = "C#", Room = "210" });
 
 
             //22.09.2026
