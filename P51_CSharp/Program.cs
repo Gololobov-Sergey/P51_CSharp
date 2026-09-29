@@ -166,7 +166,7 @@ namespace P51_CSharp
                     "м. Київ, вул. Велика Васильківська, 55"),
 
                 new Firma("CoffeeTime", new DateTime(2022, 3, 15),
-                    "Харчування", "Василенко Анна Романівна", 18,
+                    "ХарЧувАннЯ", "Василенко Анна Романівна", 18,
                     "м. Львів, вул. Вірменська, 9"),
 
                 new Firma("InfoSystems", new DateTime(2018, 8, 21),
@@ -218,10 +218,15 @@ namespace P51_CSharp
                     "м. Миколаїв, вул. Центральна, 18")
             };
 
+
+            //var result = firms.Where(f => f.BusinessProfile.Contains("Харчування"));
+
+            var result = firms.Where(f => f.BusinessProfile.ToLower().Contains("харчування"));
+
             Console.WriteLine("СПИСОК ФІРМ");
             Console.WriteLine(new string('-', 150));
 
-            foreach (Firma firma in firms)
+            foreach (Firma firma in result)
             {
                 Console.WriteLine(firma);
             }
