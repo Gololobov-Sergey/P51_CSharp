@@ -91,163 +91,250 @@ namespace P51_CSharp
             Console.BackgroundColor = ConsoleColor.Blue;
             Console.Clear();
 
+            //01.10.2026
+
+            //using(FileStream fs = new FileStream("data.txt", FileMode.Create, FileAccess.Write, FileShare.None))
+            //{
+            //    string data = "Hello C#";
+            //    byte[] bytes = Encoding.UTF8.GetBytes(data);
+            //    fs.Write(bytes, 0, bytes.Length);
+            //}
+
+
+            //using(FileStream fs = new FileStream("data.txt", FileMode.Open, FileAccess.Read, FileShare.None))
+            //{
+            //    byte[] bytes = new byte[fs.Length];
+            //    fs.Read(bytes, 0, bytes.Length);
+            //    string data = Encoding.UTF8.GetString(bytes);
+            //    Console.WriteLine(data);
+            //}
+
+
+            //using (FileStream fs = new FileStream("data1.txt", FileMode.Create, FileAccess.Write, FileShare.None))
+            //{
+            //    using (StreamWriter sw = new StreamWriter(fs, Encoding.UTF8))
+            //    {
+            //        foreach (var item in "Hello C#")
+            //        {
+            //            sw.Write(item + " ");
+            //        }
+            //    }
+            //}
+
+            //using (FileStream fs = new FileStream("data1.txt", FileMode.Open, FileAccess.Read, FileShare.None))
+            //{
+            //    using (StreamReader sr = new StreamReader(fs, Encoding.UTF8))
+            //    {
+            //        string data = sr.ReadToEnd();
+            //        Console.WriteLine(data);
+            //    }
+            //}
+
+
+            //using(FileStream fs = new FileStream("data2.txt", FileMode.Create, FileAccess.Write, FileShare.None))
+            //{
+            //    using (BinaryWriter bw = new BinaryWriter(fs, Encoding.UTF8))
+            //    {
+            //        bw.Write(10);
+            //        bw.Write(3.14f);
+            //        bw.Write("Hello C#");
+            //    }
+            //};
+
+
+            //using(FileStream fs = new FileStream("data2.txt", FileMode.Open, FileAccess.Read, FileShare.None))
+            //{
+            //    using (BinaryReader br = new BinaryReader(fs, Encoding.UTF8))
+            //    {
+            //        int a = br.ReadInt32();
+            //        float b = br.ReadSingle();
+            //        string s = br.ReadString();
+            //        Console.WriteLine($"a = {a}, b = {b}, s = {s}");
+            //    }
+            //};
+
+
+            //DirectoryInfo dir = new DirectoryInfo(".");
+
+            //dir.CreateSubdirectory("mama");
+
+            //Console.WriteLine(dir.Name);
+            //Console.WriteLine(dir.FullName);
+            //Console.WriteLine(dir.CreationTime);
+            //Console.WriteLine(dir.LinkTarget);
+            //Console.WriteLine(dir.Parent);
+
+            //var files = dir.EnumerateFiles().ToList();
+            //foreach (var item in files)
+            //{
+            //    Console.WriteLine(item.Name + " " + item.Attributes);
+            //}
+
+
+            //Directory.GetLogicalDrives().ToList().ForEach(d => Console.WriteLine(d));
+
+            //using(StreamWriter sw  = File.CreateText("data3.txt"))
+            //{
+            //    sw.WriteLine("Hello C#");
+            //    sw.WriteLine("Привіт C#");
+            //}
 
 
             //29.09.2026
 
-            List<Firma> firms = new List<Firma>
-            {
-                new Firma("SoftLine", new DateTime(2010, 5, 12),
-                    "IT", "Петренко Олександр Іванович", 120,
-                    "м. Київ, вул. Хрещатик, 10"),
+            //List<Firma> firms = new List<Firma>
+            //{
+            //    new Firma("SoftLine", new DateTime(2010, 5, 12),
+            //        "IT", "Петренко Олександр Іванович", 120,
+            //        "м. Київ, вул. Хрещатик, 10"),
 
-                new Firma("WebStudio", new DateTime(2015, 3, 20),
-                    "IT", "Іваненко Андрій Петрович", 45,
-                    "м. Львів, вул. Городоцька, 25"),
+            //    new Firma("WebStudio", new DateTime(2015, 3, 20),
+            //        "IT", "Іваненко Андрій Петрович", 45,
+            //        "м. Львів, вул. Городоцька, 25"),
 
-                new Firma("MarketPro", new DateTime(2008, 7, 15),
-                    "Маркетинг", "Коваленко Сергій Олексійович", 35,
-                    "м. Київ, вул. Ділова, 12"),
+            //    new Firma("MarketPro", new DateTime(2008, 7, 15),
+            //        "Маркетинг", "Коваленко Сергій Олексійович", 35,
+            //        "м. Київ, вул. Ділова, 12"),
 
-                new Firma("BuildMaster", new DateTime(2012, 9, 5),
-                    "Будівництво", "Мельник Олег Васильович", 230,
-                    "м. Одеса, вул. Дерибасівська, 15"),
+            //    new Firma("BuildMaster", new DateTime(2012, 9, 5),
+            //        "Будівництво", "Мельник Олег Васильович", 230,
+            //        "м. Одеса, вул. Дерибасівська, 15"),
 
-                new Firma("FoodTime", new DateTime(2018, 2, 10),
-                    "Харчування", "Шевченко Максим Андрійович", 85,
-                    "м. Миколаїв, вул. Соборна, 30"),
+            //    new Firma("FoodTime", new DateTime(2018, 2, 10),
+            //        "Харчування", "Шевченко Максим Андрійович", 85,
+            //        "м. Миколаїв, вул. Соборна, 30"),
 
-                new Firma("CyberSoft", new DateTime(2017, 4, 22),
-                    "IT", "Бондаренко Дмитро Сергійович", 155,
-                    "м. Київ, вул. Антоновича, 8"),
+            //    new Firma("CyberSoft", new DateTime(2017, 4, 22),
+            //        "IT", "Бондаренко Дмитро Сергійович", 155,
+            //        "м. Київ, вул. Антоновича, 8"),
 
-                new Firma("AutoDrive", new DateTime(2005, 11, 3),
-                    "Автомобілі", "Мороз Віктор Петрович", 180,
-                    "м. Харків, вул. Наукова, 7"),
+            //    new Firma("AutoDrive", new DateTime(2005, 11, 3),
+            //        "Автомобілі", "Мороз Віктор Петрович", 180,
+            //        "м. Харків, вул. Наукова, 7"),
 
-                new Firma("TravelWorld", new DateTime(2014, 6, 11),
-                    "Туризм", "Лисенко Ірина Миколаївна", 28,
-                    "м. Львів, вул. Шевченка, 21"),
+            //    new Firma("TravelWorld", new DateTime(2014, 6, 11),
+            //        "Туризм", "Лисенко Ірина Миколаївна", 28,
+            //        "м. Львів, вул. Шевченка, 21"),
 
-                new Firma("AgroLand", new DateTime(2003, 8, 17),
-                    "Сільське господарство", "Романенко Василь Іванович", 310,
-                    "м. Одеса, вул. Польова, 4"),
+            //    new Firma("AgroLand", new DateTime(2003, 8, 17),
+            //        "Сільське господарство", "Романенко Василь Іванович", 310,
+            //        "м. Одеса, вул. Польова, 4"),
 
-                new Firma("DesignPro", new DateTime(2019, 10, 9),
-                    "Дизайн", "Гнатюк Марія Олегівна", 24,
-                    "м. Київ, вул. Франка, 16"),
+            //    new Firma("DesignPro", new DateTime(2019, 10, 9),
+            //        "Дизайн", "Гнатюк Марія Олегівна", 24,
+            //        "м. Київ, вул. Франка, 16"),
 
-                new Firma("LogisticGroup", new DateTime(2011, 12, 1),
-                    "Логістика", "Захарченко Роман Васильович", 145,
-                    "м. Миколаїв, вул. Перемоги, 33"),
+            //    new Firma("LogisticGroup", new DateTime(2011, 12, 1),
+            //        "Логістика", "Захарченко Роман Васильович", 145,
+            //        "м. Миколаїв, вул. Перемоги, 33"),
 
-                new Firma("MedService", new DateTime(2009, 3, 14),
-                    "Медицина", "Кравченко Олена Петрівна", 95,
-                    "м. Харків, вул. Лікарняна, 5"),
+            //    new Firma("MedService", new DateTime(2009, 3, 14),
+            //        "Медицина", "Кравченко Олена Петрівна", 95,
+            //        "м. Харків, вул. Лікарняна, 5"),
 
-                new Firma("TechnoStar", new DateTime(2013, 7, 19),
-                    "IT", "Даниленко Артем Вікторович", 210,
-                    "м. Дніпро, вул. Робоча, 20"),
+            //    new Firma("TechnoStar", new DateTime(2013, 7, 19),
+            //        "IT", "Даниленко Артем Вікторович", 210,
+            //        "м. Дніпро, вул. Робоча, 20"),
 
-                new Firma("CleanHome", new DateTime(2021, 2, 8),
-                    "Послуги", "Олійник Тетяна Сергіївна", 43,
-                    "м. Миколаїв, вул. Соборна, 11"),
+            //    new Firma("CleanHome", new DateTime(2021, 2, 8),
+            //        "Послуги", "Олійник Тетяна Сергіївна", 43,
+            //        "м. Миколаїв, вул. Соборна, 11"),
 
-                new Firma("FashionStyle", new DateTime(2010, 10, 25),
-                    "Торгівля", "Білик Катерина Ігорівна", 76,
-                    "м. Одеса, вул. Пушкінська, 19"),
+            //    new Firma("FashionStyle", new DateTime(2010, 10, 25),
+            //        "Торгівля", "Білик Катерина Ігорівна", 76,
+            //        "м. Одеса, вул. Пушкінська, 19"),
 
-                new Firma("EnergyPower", new DateTime(2001, 4, 6),
-                    "Енергетика", "Сидоренко Микола Васильович", 420,
-                    "м. Харків, вул. Енергетична, 2"),
+            //    new Firma("EnergyPower", new DateTime(2001, 4, 6),
+            //        "Енергетика", "Сидоренко Микола Васильович", 420,
+            //        "м. Харків, вул. Енергетична, 2"),
 
-                new Firma("LegalExpert", new DateTime(2015, 9, 13),
-                    "Юридичні послуги", "Кузьменко Павло Олександрович", 22,
-                    "м. Київ, вул. Велика Васильківська, 55"),
+            //    new Firma("LegalExpert", new DateTime(2015, 9, 13),
+            //        "Юридичні послуги", "Кузьменко Павло Олександрович", 22,
+            //        "м. Київ, вул. Велика Васильківська, 55"),
 
-                new Firma("CoffeeTime", new DateTime(2022, 3, 15),
-                    "ХарЧувАннЯ", "Василенко Анна Романівна", 18,
-                    "м. Львів, вул. Вірменська, 9"),
+            //    new Firma("CoffeeTime", new DateTime(2022, 3, 15),
+            //        "ХарЧувАннЯ", "Василенко Анна Романівна", 18,
+            //        "м. Львів, вул. Вірменська, 9"),
 
-                new Firma("InfoSystems", new DateTime(2018, 8, 21),
-                    "IT", "Федоренко Євген Миколайович", 155,
-                    "м. Київ, вул. Перемоги, 14"),
+            //    new Firma("InfoSystems", new DateTime(2018, 8, 21),
+            //        "IT", "Федоренко Євген Миколайович", 155,
+            //        "м. Київ, вул. Перемоги, 14"),
 
-                new Firma("GreenGarden", new DateTime(2014, 11, 7),
-                    "Дизайн", "Назаренко Ігор Петрович", 37,
-                    "м. Вінниця, вул. Келецька, 28"),
+            //    new Firma("GreenGarden", new DateTime(2014, 11, 7),
+            //        "Дизайн", "Назаренко Ігор Петрович", 37,
+            //        "м. Вінниця, вул. Келецька, 28"),
 
-                new Firma("TransportLine", new DateTime(2007, 6, 30),
-                    "Логістика", "Макаренко Олексій Іванович", 275,
-                    "м. Одеса, вул. Балківська, 40"),
+            //    new Firma("TransportLine", new DateTime(2007, 6, 30),
+            //        "Логістика", "Макаренко Олексій Іванович", 275,
+            //        "м. Одеса, вул. Балківська, 40"),
 
-                new Firma("MediaStar", new DateTime(2019, 1, 12),
-                    "Маркетинг", "Терещенко Вікторія Олегівна", 48,
-                    "м. Київ, вул. Ярославська, 17"),
+            //    new Firma("MediaStar", new DateTime(2019, 1, 12),
+            //        "Маркетинг", "Терещенко Вікторія Олегівна", 48,
+            //        "м. Київ, вул. Ярославська, 17"),
 
-                new Firma("SmartHome", new DateTime(2020, 7, 5),
-                    "IT", "Павленко Денис Сергійович", 63,
-                    "м. Харків, вул. Космічна, 12"),
+            //    new Firma("SmartHome", new DateTime(2020, 7, 5),
+            //        "IT", "Павленко Денис Сергійович", 63,
+            //        "м. Харків, вул. Космічна, 12"),
 
-                new Firma("AgroTech", new DateTime(2012, 2, 24),
-                    "Сільське господарство", "Волошин Андрій Миколайович", 112,
-                    "м. Одеса, вул. Центральна, 36"),
+            //    new Firma("AgroTech", new DateTime(2012, 2, 24),
+            //        "Сільське господарство", "Волошин Андрій Миколайович", 112,
+            //        "м. Одеса, вул. Центральна, 36"),
 
-                new Firma("SecurityPro", new DateTime(2006, 10, 16),
-                    "Послуги", "Єфремов Олександр Петрович", 195,
-                    "м. Дніпро, вул. Калинова, 50"),
+            //    new Firma("SecurityPro", new DateTime(2006, 10, 16),
+            //        "Послуги", "Єфремов Олександр Петрович", 195,
+            //        "м. Дніпро, вул. Калинова, 50"),
 
-                new Firma("KidsWorld", new DateTime(2017, 12, 3),
-                    "Освіта", "Марченко Людмила Василівна", 54,
-                    "м. Миколаїв, вул. Адміральська, 23"),
+            //    new Firma("KidsWorld", new DateTime(2017, 12, 3),
+            //        "Освіта", "Марченко Людмила Василівна", 54,
+            //        "м. Миколаїв, вул. Адміральська, 23"),
 
-                new Firma("RealEstate", new DateTime(2004, 5, 18),
-                    "Нерухомість", "Руденко Вадим Олексійович", 88,
-                    "м. Київ, вул. Ділова, 9"),
+            //    new Firma("RealEstate", new DateTime(2004, 5, 18),
+            //        "Нерухомість", "Руденко Вадим Олексійович", 88,
+            //        "м. Київ, вул. Ділова, 9"),
 
-                new Firma("CodeFactory", new DateTime(2016, 4, 26),
-                    "IT", "Черненко Іван Дмитрович", 95,
-                    "м. Львів, вул. Наукова, 7"),
+            //    new Firma("CodeFactory", new DateTime(2016, 4, 26),
+            //        "IT", "Черненко Іван Дмитрович", 95,
+            //        "м. Львів, вул. Наукова, 7"),
 
-                new Firma("MarketPlus", new DateTime(2011, 9, 14),
-                    "Маркетинг", "Савченко Юлія Андріївна", 61,
-                    "м. Харків, вул. Сумська, 42"),
+            //    new Firma("MarketPlus", new DateTime(2011, 9, 14),
+            //        "Маркетинг", "Савченко Юлія Андріївна", 61,
+            //        "м. Харків, вул. Сумська, 42"),
 
-                new Firma("BuildHouse", new DateTime(2009, 1, 30),
-                    "Будівництво", "Олексенко Роман Петрович", 165,
-                    "м. Миколаїв, вул. Центральна, 18")
-            };
+            //    new Firma("BuildHouse", new DateTime(2009, 1, 30),
+            //        "Будівництво", "Олексенко Роман Петрович", 165,
+            //        "м. Миколаїв, вул. Центральна, 18")
+            //};
 
 
             //var result = firms.Where(f => f.BusinessProfile.Contains("Харчування"));
 
-            var result = firms.Where(f => f.BusinessProfile.ToLower().Contains("харчування"));
+            //var result = firms.Where(f => f.BusinessProfile.ToLower().Contains("харчування"));
 
-            Console.WriteLine("СПИСОК ФІРМ");
-            Console.WriteLine(new string('-', 150));
+            //Console.WriteLine("СПИСОК ФІРМ");
+            //Console.WriteLine(new string('-', 150));
 
-            foreach (Firma firma in result)
-            {
-                Console.WriteLine(firma);
-            }
+            //foreach (Firma firma in result)
+            //{
+            //    Console.WriteLine(firma);
+            //}
 
-            Console.WriteLine(new string('-', 150));
-            Console.WriteLine($"Кількість фірм: {firms.Count}");
+            //Console.WriteLine(new string('-', 150));
+            //Console.WriteLine($"Кількість фірм: {firms.Count}");
 
 
 
             //string pattern = @"^\+38\((050|066)\)\d{3}-\d{2}-\d{2}$"; // +38(050)325-45-78
             //string pattern = @"^\d{4}$"; // PIN XXXX
             //string pattern = @"^\-?\+?\d+$"; // int
-            string pattern = @"^[A-Z][a-z]* [A-Z][a-z]*$"; // int
+            //string pattern = @"^[A-Z][a-z]* [A-Z][a-z]*$"; // int
 
-            Regex regex = new Regex(pattern);
-                   
-            while(true)
-            {
-                string str = Console.ReadLine();
-                Console.WriteLine(regex.IsMatch(str));
-            }
+            //Regex regex = new Regex(pattern);
+
+            //while(true)
+            //{
+            //    string str = Console.ReadLine();
+            //    Console.WriteLine(regex.IsMatch(str));
+            //}
 
 
 
