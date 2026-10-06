@@ -1,12 +1,13 @@
 ﻿using System.Collections;
 using System.Drawing;
+using System.Net;
 using System.Numerics;
-using System.Text;
 using System.Security.Cryptography;
-using static P51_CSharp.Program;
+using System.Text;
+using System.Text.Json;
 using System.Text.RegularExpressions;
 using System.Xml.Serialization;
-using System.Text.Json;
+using static P51_CSharp.Program;
 
 namespace P51_CSharp
 {
@@ -96,7 +97,14 @@ namespace P51_CSharp
             //06.10.2026
 
 
-            
+            var client = new HttpClient();
+            string jsonString = client.GetStringAsync("https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?json").Result;
+            var data = JsonSerializer.Deserialize<List<Currency>>(jsonString);
+            data.Sort((c1, c2) => c1.Rate.CompareTo(c2.Rate));
+            data.ForEach(c => Console.WriteLine(c));
+
+
+
 
             Student s = new Student
             {
