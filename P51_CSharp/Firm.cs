@@ -7,7 +7,7 @@ namespace P51_CSharp
     using System;
     using System.Collections.Generic;
 
-    class Firma
+    public class Firma
     {
         public string Name { get; set; }
         public DateTime FoundationDate { get; set; }
@@ -15,6 +15,8 @@ namespace P51_CSharp
         public string Director { get; set; }
         public int EmployeesCount { get; set; }
         public string Address { get; set; }
+
+        public Firma() { }
 
         public Firma(string name, DateTime foundationDate,
                      string businessProfile, string director,

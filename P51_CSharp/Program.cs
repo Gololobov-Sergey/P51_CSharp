@@ -5,6 +5,8 @@ using System.Text;
 using System.Security.Cryptography;
 using static P51_CSharp.Program;
 using System.Text.RegularExpressions;
+using System.Xml.Serialization;
+using System.Text.Json;
 
 namespace P51_CSharp
 {
@@ -90,6 +92,50 @@ namespace P51_CSharp
             Console.ForegroundColor = ConsoleColor.White;
             Console.BackgroundColor = ConsoleColor.Blue;
             Console.Clear();
+
+            //06.10.2026
+
+
+            
+
+            Student s = new Student
+            {
+                FirstName = "John",
+                LastName = "Doe",
+                BirthDay = new DateOnly(2000, 1, 10),
+                StudentCard = new StudentCard
+                {
+                    Series = "AB",
+                    Number = 123456
+                }
+            };
+
+            //XmlSerializer xml = new XmlSerializer(typeof(Student));
+
+            //using (Stream stream = File.Create("student.xml"))
+            //{
+            //    xml.Serialize(stream, s);
+            //}
+
+            //Student? student = null;
+
+            //using(Stream stream = File.OpenRead("student.xml"))
+            //{
+            //    student = (Student)xml.Deserialize(stream);
+            //}
+            //Console.WriteLine(student);
+
+            //var option = new JsonSerializerOptions { WriteIndented = true };
+
+            //string json = JsonSerializer.Serialize(s, option);
+
+            //File.WriteAllText("student.json", json);
+
+            //Console.WriteLine(json);
+
+
+
+
 
             //01.10.2026
 
@@ -180,131 +226,168 @@ namespace P51_CSharp
             //}
 
 
-            //29.09.2026
-
-            //List<Firma> firms = new List<Firma>
+            //using (FileStream fs = new FileStream("data2.txt", FileMode.Open, FileAccess.Read, FileShare.None))
             //{
-            //    new Firma("SoftLine", new DateTime(2010, 5, 12),
-            //        "IT", "Петренко Олександр Іванович", 120,
-            //        "м. Київ, вул. Хрещатик, 10"),
+            //    using (BinaryReader br = new BinaryReader(fs, Encoding.UTF8))
+            //    {
+            //        while (fs.Position < fs.Length)
+            //        {
 
-            //    new Firma("WebStudio", new DateTime(2015, 3, 20),
-            //        "IT", "Іваненко Андрій Петрович", 45,
-            //        "м. Львів, вул. Городоцька, 25"),
-
-            //    new Firma("MarketPro", new DateTime(2008, 7, 15),
-            //        "Маркетинг", "Коваленко Сергій Олексійович", 35,
-            //        "м. Київ, вул. Ділова, 12"),
-
-            //    new Firma("BuildMaster", new DateTime(2012, 9, 5),
-            //        "Будівництво", "Мельник Олег Васильович", 230,
-            //        "м. Одеса, вул. Дерибасівська, 15"),
-
-            //    new Firma("FoodTime", new DateTime(2018, 2, 10),
-            //        "Харчування", "Шевченко Максим Андрійович", 85,
-            //        "м. Миколаїв, вул. Соборна, 30"),
-
-            //    new Firma("CyberSoft", new DateTime(2017, 4, 22),
-            //        "IT", "Бондаренко Дмитро Сергійович", 155,
-            //        "м. Київ, вул. Антоновича, 8"),
-
-            //    new Firma("AutoDrive", new DateTime(2005, 11, 3),
-            //        "Автомобілі", "Мороз Віктор Петрович", 180,
-            //        "м. Харків, вул. Наукова, 7"),
-
-            //    new Firma("TravelWorld", new DateTime(2014, 6, 11),
-            //        "Туризм", "Лисенко Ірина Миколаївна", 28,
-            //        "м. Львів, вул. Шевченка, 21"),
-
-            //    new Firma("AgroLand", new DateTime(2003, 8, 17),
-            //        "Сільське господарство", "Романенко Василь Іванович", 310,
-            //        "м. Одеса, вул. Польова, 4"),
-
-            //    new Firma("DesignPro", new DateTime(2019, 10, 9),
-            //        "Дизайн", "Гнатюк Марія Олегівна", 24,
-            //        "м. Київ, вул. Франка, 16"),
-
-            //    new Firma("LogisticGroup", new DateTime(2011, 12, 1),
-            //        "Логістика", "Захарченко Роман Васильович", 145,
-            //        "м. Миколаїв, вул. Перемоги, 33"),
-
-            //    new Firma("MedService", new DateTime(2009, 3, 14),
-            //        "Медицина", "Кравченко Олена Петрівна", 95,
-            //        "м. Харків, вул. Лікарняна, 5"),
-
-            //    new Firma("TechnoStar", new DateTime(2013, 7, 19),
-            //        "IT", "Даниленко Артем Вікторович", 210,
-            //        "м. Дніпро, вул. Робоча, 20"),
-
-            //    new Firma("CleanHome", new DateTime(2021, 2, 8),
-            //        "Послуги", "Олійник Тетяна Сергіївна", 43,
-            //        "м. Миколаїв, вул. Соборна, 11"),
-
-            //    new Firma("FashionStyle", new DateTime(2010, 10, 25),
-            //        "Торгівля", "Білик Катерина Ігорівна", 76,
-            //        "м. Одеса, вул. Пушкінська, 19"),
-
-            //    new Firma("EnergyPower", new DateTime(2001, 4, 6),
-            //        "Енергетика", "Сидоренко Микола Васильович", 420,
-            //        "м. Харків, вул. Енергетична, 2"),
-
-            //    new Firma("LegalExpert", new DateTime(2015, 9, 13),
-            //        "Юридичні послуги", "Кузьменко Павло Олександрович", 22,
-            //        "м. Київ, вул. Велика Васильківська, 55"),
-
-            //    new Firma("CoffeeTime", new DateTime(2022, 3, 15),
-            //        "ХарЧувАннЯ", "Василенко Анна Романівна", 18,
-            //        "м. Львів, вул. Вірменська, 9"),
-
-            //    new Firma("InfoSystems", new DateTime(2018, 8, 21),
-            //        "IT", "Федоренко Євген Миколайович", 155,
-            //        "м. Київ, вул. Перемоги, 14"),
-
-            //    new Firma("GreenGarden", new DateTime(2014, 11, 7),
-            //        "Дизайн", "Назаренко Ігор Петрович", 37,
-            //        "м. Вінниця, вул. Келецька, 28"),
-
-            //    new Firma("TransportLine", new DateTime(2007, 6, 30),
-            //        "Логістика", "Макаренко Олексій Іванович", 275,
-            //        "м. Одеса, вул. Балківська, 40"),
-
-            //    new Firma("MediaStar", new DateTime(2019, 1, 12),
-            //        "Маркетинг", "Терещенко Вікторія Олегівна", 48,
-            //        "м. Київ, вул. Ярославська, 17"),
-
-            //    new Firma("SmartHome", new DateTime(2020, 7, 5),
-            //        "IT", "Павленко Денис Сергійович", 63,
-            //        "м. Харків, вул. Космічна, 12"),
-
-            //    new Firma("AgroTech", new DateTime(2012, 2, 24),
-            //        "Сільське господарство", "Волошин Андрій Миколайович", 112,
-            //        "м. Одеса, вул. Центральна, 36"),
-
-            //    new Firma("SecurityPro", new DateTime(2006, 10, 16),
-            //        "Послуги", "Єфремов Олександр Петрович", 195,
-            //        "м. Дніпро, вул. Калинова, 50"),
-
-            //    new Firma("KidsWorld", new DateTime(2017, 12, 3),
-            //        "Освіта", "Марченко Людмила Василівна", 54,
-            //        "м. Миколаїв, вул. Адміральська, 23"),
-
-            //    new Firma("RealEstate", new DateTime(2004, 5, 18),
-            //        "Нерухомість", "Руденко Вадим Олексійович", 88,
-            //        "м. Київ, вул. Ділова, 9"),
-
-            //    new Firma("CodeFactory", new DateTime(2016, 4, 26),
-            //        "IT", "Черненко Іван Дмитрович", 95,
-            //        "м. Львів, вул. Наукова, 7"),
-
-            //    new Firma("MarketPlus", new DateTime(2011, 9, 14),
-            //        "Маркетинг", "Савченко Юлія Андріївна", 61,
-            //        "м. Харків, вул. Сумська, 42"),
-
-            //    new Firma("BuildHouse", new DateTime(2009, 1, 30),
-            //        "Будівництво", "Олексенко Роман Петрович", 165,
-            //        "м. Миколаїв, вул. Центральна, 18")
+            //        }
+            //    }
             //};
 
+
+            //Random random = new Random();
+            ////random.Next(-90000, 90000);
+            //for (int i = 0; i < 10; i++)
+            //{
+            //    Console.WriteLine(random.Next(-90000, 90000));
+            //}   
+
+            //29.09.2026
+
+            List<Firma> firms = new List<Firma>
+            {
+                new Firma("SoftLine", new DateTime(2010, 5, 12),
+                    "IT", "Петренко Олександр Іванович", 120,
+                    "м. Київ, вул. Хрещатик, 10"),
+
+                new Firma("WebStudio", new DateTime(2015, 3, 20),
+                    "IT", "Іваненко Андрій Петрович", 45,
+                    "м. Львів, вул. Городоцька, 25"),
+
+                new Firma("MarketPro", new DateTime(2008, 7, 15),
+                    "Маркетинг", "Коваленко Сергій Олексійович", 35,
+                    "м. Київ, вул. Ділова, 12"),
+
+                new Firma("BuildMaster", new DateTime(2012, 9, 5),
+                    "Будівництво", "Мельник Олег Васильович", 230,
+                    "м. Одеса, вул. Дерибасівська, 15"),
+
+                new Firma("FoodTime", new DateTime(2018, 2, 10),
+                    "Харчування", "Шевченко Максим Андрійович", 85,
+                    "м. Миколаїв, вул. Соборна, 30"),
+
+                new Firma("CyberSoft", new DateTime(2017, 4, 22),
+                    "IT", "Бондаренко Дмитро Сергійович", 155,
+                    "м. Київ, вул. Антоновича, 8"),
+
+                new Firma("AutoDrive", new DateTime(2005, 11, 3),
+                    "Автомобілі", "Мороз Віктор Петрович", 180,
+                    "м. Харків, вул. Наукова, 7"),
+
+                new Firma("TravelWorld", new DateTime(2014, 6, 11),
+                    "Туризм", "Лисенко Ірина Миколаївна", 28,
+                    "м. Львів, вул. Шевченка, 21"),
+
+                new Firma("AgroLand", new DateTime(2003, 8, 17),
+                    "Сільське господарство", "Романенко Василь Іванович", 310,
+                    "м. Одеса, вул. Польова, 4"),
+
+                new Firma("DesignPro", new DateTime(2019, 10, 9),
+                    "Дизайн", "Гнатюк Марія Олегівна", 24,
+                    "м. Київ, вул. Франка, 16"),
+
+                new Firma("LogisticGroup", new DateTime(2011, 12, 1),
+                    "Логістика", "Захарченко Роман Васильович", 145,
+                    "м. Миколаїв, вул. Перемоги, 33"),
+
+                new Firma("MedService", new DateTime(2009, 3, 14),
+                    "Медицина", "Кравченко Олена Петрівна", 95,
+                    "м. Харків, вул. Лікарняна, 5"),
+
+                new Firma("TechnoStar", new DateTime(2013, 7, 19),
+                    "IT", "Даниленко Артем Вікторович", 210,
+                    "м. Дніпро, вул. Робоча, 20"),
+
+                new Firma("CleanHome", new DateTime(2021, 2, 8),
+                    "Послуги", "Олійник Тетяна Сергіївна", 43,
+                    "м. Миколаїв, вул. Соборна, 11"),
+
+                new Firma("FashionStyle", new DateTime(2010, 10, 25),
+                    "Торгівля", "Білик Катерина Ігорівна", 76,
+                    "м. Одеса, вул. Пушкінська, 19"),
+
+                new Firma("EnergyPower", new DateTime(2001, 4, 6),
+                    "Енергетика", "Сидоренко Микола Васильович", 420,
+                    "м. Харків, вул. Енергетична, 2"),
+
+                new Firma("LegalExpert", new DateTime(2015, 9, 13),
+                    "Юридичні послуги", "Кузьменко Павло Олександрович", 22,
+                    "м. Київ, вул. Велика Васильківська, 55"),
+
+                new Firma("CoffeeTime", new DateTime(2022, 3, 15),
+                    "ХарЧувАннЯ", "Василенко Анна Романівна", 18,
+                    "м. Львів, вул. Вірменська, 9"),
+
+                new Firma("InfoSystems", new DateTime(2018, 8, 21),
+                    "IT", "Федоренко Євген Миколайович", 155,
+                    "м. Київ, вул. Перемоги, 14"),
+
+                new Firma("GreenGarden", new DateTime(2014, 11, 7),
+                    "Дизайн", "Назаренко Ігор Петрович", 37,
+                    "м. Вінниця, вул. Келецька, 28"),
+
+                new Firma("TransportLine", new DateTime(2007, 6, 30),
+                    "Логістика", "Макаренко Олексій Іванович", 275,
+                    "м. Одеса, вул. Балківська, 40"),
+
+                new Firma("MediaStar", new DateTime(2019, 1, 12),
+                    "Маркетинг", "Терещенко Вікторія Олегівна", 48,
+                    "м. Київ, вул. Ярославська, 17"),
+
+                new Firma("SmartHome", new DateTime(2020, 7, 5),
+                    "IT", "Павленко Денис Сергійович", 63,
+                    "м. Харків, вул. Космічна, 12"),
+
+                new Firma("AgroTech", new DateTime(2012, 2, 24),
+                    "Сільське господарство", "Волошин Андрій Миколайович", 112,
+                    "м. Одеса, вул. Центральна, 36"),
+
+                new Firma("SecurityPro", new DateTime(2006, 10, 16),
+                    "Послуги", "Єфремов Олександр Петрович", 195,
+                    "м. Дніпро, вул. Калинова, 50"),
+
+                new Firma("KidsWorld", new DateTime(2017, 12, 3),
+                    "Освіта", "Марченко Людмила Василівна", 54,
+                    "м. Миколаїв, вул. Адміральська, 23"),
+
+                new Firma("RealEstate", new DateTime(2004, 5, 18),
+                    "Нерухомість", "Руденко Вадим Олексійович", 88,
+                    "м. Київ, вул. Ділова, 9"),
+
+                new Firma("CodeFactory", new DateTime(2016, 4, 26),
+                    "IT", "Черненко Іван Дмитрович", 95,
+                    "м. Львів, вул. Наукова, 7"),
+
+                new Firma("MarketPlus", new DateTime(2011, 9, 14),
+                    "Маркетинг", "Савченко Юлія Андріївна", 61,
+                    "м. Харків, вул. Сумська, 42"),
+
+                new Firma("BuildHouse", new DateTime(2009, 1, 30),
+                    "Будівництво", "Олексенко Роман Петрович", 165,
+                    "м. Миколаїв, вул. Центральна, 18")
+            };
+
+            //var option = new JsonSerializerOptions { WriteIndented = true};
+
+            //string json = JsonSerializer.Serialize(firms, option);
+
+            //File.WriteAllText("firms.json", json);
+
+
+            //string fromJsonFile = File.ReadAllText("firms.json");
+
+            //List<Firma> f = JsonSerializer.Deserialize<List<Firma>>(fromJsonFile);
+
+            //f.ForEach(f => Console.WriteLine(f));
+
+            //XmlSerializer xml = new XmlSerializer(typeof(List<Firma>));
+            //using (Stream stream = File.Create("firms.xml"))
+            //{
+            //    xml.Serialize(stream, firms);
+            //}
 
             //var result = firms.Where(f => f.BusinessProfile.Contains("Харчування"));
 

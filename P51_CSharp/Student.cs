@@ -26,6 +26,7 @@ namespace P51_CSharp
 
     public class Student : IComparable<Student>, ICloneable
     {
+        //public string planet = "Mars";
         public string? FirstName { get; set; }
         public string? LastName { get; set; }
         public DateOnly BirthDay { get; set; }
