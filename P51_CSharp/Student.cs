@@ -24,6 +24,7 @@ namespace P51_CSharp
         }
     }
 
+    [Coder]
     public class Student : IComparable<Student>, ICloneable
     {
         //public string planet = "Mars";
@@ -36,6 +37,8 @@ namespace P51_CSharp
         public static IComparer<Student> FromBirthDay { get; } = new DateComparer();
         public static IComparer FromStudentCard { get; } = new StudentCardComparer();
 
+
+        [Coder("Vasya Pupkin", "08.08.2026")]
         public int CompareTo(Student? st)
         {
             return (LastName + FirstName).CompareTo(st!.LastName + st.FirstName);
@@ -46,6 +49,8 @@ namespace P51_CSharp
             return $"{LastName,-20} {FirstName,-15} {BirthDay} {StudentCard}";
         }
 
+
+        [Coder("Vasya Pupkin", "03.08.2026")]
         public object Clone()
         {
             Student clonedStudent = (Student)this.MemberwiseClone();

@@ -94,29 +94,74 @@ namespace P51_CSharp
             Console.BackgroundColor = ConsoleColor.Blue;
             Console.Clear();
 
+
+            //08.10.2026
+
+
+            foreach (var attr in typeof(Student).GetCustomAttributes(false))
+            {
+                if(attr is CoderAttribute)
+                    Console.WriteLine(attr);
+            }
+
+            foreach (var item in typeof(Student).GetMethods())
+            {
+                Console.WriteLine(item.Name);
+
+                foreach (var attr in item.GetCustomAttributes(false))
+                {
+                    Console.WriteLine(attr);
+                }
+            }
+
+
+            //Console.WriteLine(GC.MaxGeneration);
+
+            //Garbage g = new Garbage();
+
+            //Console.WriteLine(GC.GetGeneration(g));
+            //Console.WriteLine(GC.GetTotalMemory(false));
+
+            //g.MakeGarbage();
+
+            //Console.WriteLine(GC.GetTotalMemory(false));
+
+            //GC.Collect(0);
+
+            //Console.WriteLine(GC.GetGeneration(g));
+            //Console.WriteLine(GC.GetTotalMemory(false));
+
+            //GC.Collect();
+
+            //Console.WriteLine(GC.GetGeneration(g));
+            //Console.WriteLine(GC.GetTotalMemory(false));
+
+            //GC.Collect();
+
+            //Console.WriteLine(GC.GetGeneration(g));
+            //Console.WriteLine(GC.GetTotalMemory(false));
+
             //06.10.2026
 
 
-            var client = new HttpClient();
-            string jsonString = client.GetStringAsync("https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?json").Result;
-            var data = JsonSerializer.Deserialize<List<Currency>>(jsonString);
-            data.Sort((c1, c2) => c1.Rate.CompareTo(c2.Rate));
-            data.ForEach(c => Console.WriteLine(c));
+            //var client = new HttpClient();
+            //string jsonString = client.GetStringAsync("https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?json").Result;
+            //var data = JsonSerializer.Deserialize<List<Currency>>(jsonString);
+            //data.Sort((c1, c2) => c1.Rate.CompareTo(c2.Rate));
+            //data.ForEach(c => Console.WriteLine(c));
 
 
-
-
-            Student s = new Student
-            {
-                FirstName = "John",
-                LastName = "Doe",
-                BirthDay = new DateOnly(2000, 1, 10),
-                StudentCard = new StudentCard
-                {
-                    Series = "AB",
-                    Number = 123456
-                }
-            };
+            //Student s = new Student
+            //{
+            //    FirstName = "John",
+            //    LastName = "Doe",
+            //    BirthDay = new DateOnly(2000, 1, 10),
+            //    StudentCard = new StudentCard
+            //    {
+            //        Series = "AB",
+            //        Number = 123456
+            //    }
+            //};
 
             //XmlSerializer xml = new XmlSerializer(typeof(Student));
 
